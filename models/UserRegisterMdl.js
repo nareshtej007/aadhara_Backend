@@ -11,7 +11,18 @@ const userSchema = mongoose.Schema({
   mobile : Number,
   email : String,
   status : String,
-  registred_time : { type : Date, default: Date.now } 
+  registred_time : { type : Date, default: Date.now }, 
+  services : [
+    {
+     
+     service_category: String,
+     service_name:String,
+     count: Number,
+     price:Number,
+     service_registred_time : { type : Date, default: Date.now }
+     
+    }
+]
   
 });
 

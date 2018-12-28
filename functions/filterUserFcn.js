@@ -4,7 +4,7 @@ var db = require("../models/UserRegisterMdl");
 
 exports.filterUsers = (name, country, mobile, email, status) => {
   console.log("user1 >>>>>>>>>>>>>>", name, country, mobile, email, status);
-//  console.log("$$$$$$$$$$$$", name, country);
+  
   return new Promise(async (resolve, reject) => {
     var filteredData = await db.find({$or: [{"name": name},
       {"country": country},
