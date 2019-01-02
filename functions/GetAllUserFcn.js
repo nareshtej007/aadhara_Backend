@@ -9,3 +9,5 @@ exports.getDetail = () => {
     resolve(userDetails);
   });
 };
+
+

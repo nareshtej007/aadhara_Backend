@@ -1,5 +1,6 @@
  "use strict";
 
+var registerProduct = require("./functions/registerProductFcn");
 var registerUser = require("./functions/RegisterUserFcn");
 var removeUser = require("./functions/RemoveUserFcn");
 var updateUser = require("./functions/UpdateUserFcn");
@@ -45,6 +46,25 @@ module.exports = router => {
           status: true
         });
       });
+  });
+
+  //====================== Api for product register =========
+
+  router.post("/registerProduct", cors(), (req, res) => {
+    const id = req.body.id;
+    const name = req.body.name;
+    const price = req.body.price;
+    const category_id = req.body.category_id;
+    const category_name = req.body.category_name;
+
+    console.log("$$$$$$$$$", id, name, price, category_id, category_name);
+    registerProduct.register(id, name, price, category_id, category_name).then(result => {
+      res.send({
+        result: result.customer_id,
+        message: "user has been removed successfully",
+        status: true
+      });
+    });
   });
 
   //====================== View number of users =============
@@ -156,11 +176,12 @@ module.exports = router => {
       // })
       // const check = result.services.forEach(function (services) {
       //   console.log("counttttttttttttttt", services)
+      //   console.log("%%%%%^^^^#######", check);
       // })
       
-      console.log("Check$$$$$$$$$$$$4", result[0].services[1]);
+      console.log("Check$$$$$$$$$$$$4", result[0].services[2].count);
       
-      console.log("%%%%%^^^^#######", check);
+     
       res.send({
         result: result,
         message: "services details",
@@ -168,5 +189,6 @@ module.exports = router => {
       });
     });
   });
+
 
 };

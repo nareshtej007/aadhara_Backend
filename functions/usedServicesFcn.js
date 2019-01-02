@@ -27,8 +27,6 @@ exports.usedServices = (customer_id, category, name, price) => {
             }
         }, { new : true },)
 
-        // console.log("$$$$$$$$$$$$",services);
-        //.then( (findStylist) => res.send(findStylist) )
         resolve(serviceCount);
 
     } else {
@@ -41,11 +39,3 @@ exports.usedServices = (customer_id, category, name, price) => {
       });
 }
 
-
-// if(filteredData.length > 0) {
-//     resolve(filteredData);
-//   }
-//   else {
-//     reject("no user exixts");
-//     console.log("No users exists")
-//   }
